@@ -159,14 +159,44 @@ public class Day27HashingPart2 {
     return list;
   }
 
+  /**
+   * Find the count of zero sum subarrays
+   * 
+   * @param A
+   * @param N
+   * @return
+   */
+  public static int numOfSubArraySumZeroWoPrefix(int[] A, int N) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    map.put(0, 1);
+
+    int count = 0;
+    int i = -1, sum = 0;
+
+    while (i < N - 1) {
+      i++;
+      sum += A[i];
+
+      if (map.containsKey(sum)) {
+        count += map.get(sum);
+        map.put(sum, map.get(sum) + 1);
+      } else {
+        map.put(sum, 1);
+      }
+    }
+
+    return count;
+  }
+
   public static void main(String[] args) {
     // Selecting 2/3 items will be N * (N - 1) => 2 * (2 - 1) => 2
     // [ (prefix[0], prefix[3]), (prefix[0], prefix[6]), (prefix[3], prefix[6]) ]
     // prefix: [3 5 8 3 5 8 3]
-    // int[] A = { 3, 2, 3, -5, 2, 3, -5 }; // 5
+    int[] A = { 3, 2, 3, -5, 2, 3, -5 }; // 5
     // prefix: [-2 0 2 -1 0 3 0]
     // int[] A = { -2, 2, 2, -3, 1, 3, -3 }; // 6
     // System.out.println(numSubArraySumZero(A, A.length));
+    // System.out.println(numOfSubArraySumZeroWoPrefix(A, A.length));
 
     // int[] A = { 0, 0, 1, 0, 1, 0, 1, 1 }; // 8
     // int[] A = { 1, 1, 1, 1 }; // 0
@@ -183,7 +213,7 @@ public class Day27HashingPart2 {
     // int[] A = { 2, 4, 3, 8, 3, 9, 4, 9, 4 }; // 4 3 3 4 3 2
     // System.out.println(distinctElementInWindow(A, A.length, 4));
     // System.out.println(distinctElementInWindowBetter(A, A.length, 4));
-    int[] A = { 1, 2, 1, 3, 4, 3 }; // 2 3 3 2 
-    System.out.println(distinctElementInWindowBetter(A, A.length, 3));
+    // int[] A = { 1, 2, 1, 3, 4, 3 }; // 2 3 3 2
+    // System.out.println(distinctElementInWindowBetter(A, A.length, 3));
   }
 }

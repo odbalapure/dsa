@@ -19,7 +19,7 @@ public class Day26HashingPart1 {
    */
   public static int firstNonRepeating(int[] A, int N) {
     TreeMap<Integer, Integer> map = new TreeMap<>();
-    
+
     for (int x : A) {
       if (map.containsKey(x)) {
         map.put(x, map.get(x) + 1);
@@ -58,7 +58,7 @@ public class Day26HashingPart1 {
    *         Time: O(N)
    *         Space: O(N)
    */
-  public static boolean subArraySumZero(int[] A, int N) {
+  public static boolean hasSubArraySumZero(int[] A, int N) {
     HashSet<Integer> set = new HashSet<>();
     int[] prefix = prefix(A, N);
 
@@ -157,6 +157,35 @@ public class Day26HashingPart1 {
     return ans;
   }
 
+  /**
+   * Longest subarray with sum 0 - w/o prefix sum
+   * 
+   * @param A
+   * @param N
+   * @return
+   */
+  public static int longestSubArraySumZeroWoPrefix(int[] A, int N) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    int maxLen = 0;
+
+    int i = -1, sum = 0;
+    map.put(sum, i);;
+
+    while (i < N - 1) {
+      i++;
+      sum += A[i];
+
+      if (map.containsKey(sum)) {
+        int len = i - map.get(sum);
+        maxLen = Math.max(len, maxLen);
+      } else {
+        map.put(sum, i);
+      }
+    }
+
+    return maxLen;
+  }
+
   public static void main(String[] args) {
     // int[] A = { 1, 2, 3, 2, 5, 1, 2 }; // 3
     // int[] A = { 1, 2, 1, 2, 3, 4, 3 }; // 4
@@ -167,7 +196,7 @@ public class Day26HashingPart1 {
     // int[] A = { 2, 2, 1, -3, 4, 3, -4 }; // true
     // prefix: [3 2 4 0 -2]
     // int[] A = { 3, -1, 2, -4, -2 }; // true
-    // System.out.println(subArraySumZero(A, A.length));
+    // System.out.println(hasSubArraySumZero(A, A.length));
 
     // prefix: [3 6 10 5 3 5 6 3 6 5 1 0]
     // int[] A = { 3, 3, 4, -5, -2, 2, 1, -3, 3, -1, -4, -1 }; // 12
@@ -176,5 +205,6 @@ public class Day26HashingPart1 {
     // int[] A = { 0, 8, 10, -3 };
     // System.out.println(longestSubArraySumZero(A, A.length));
     // System.out.println(longestSubArraySumZeroOptimized(A, A.length));
+    // System.out.println(longestSubArraySumZeroWoPrefix(A, A.length));
   }
 }
