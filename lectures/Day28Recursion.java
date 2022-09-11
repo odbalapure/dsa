@@ -1,6 +1,6 @@
 package lectures;
 
-public class Day29RecursionPart1 {
+public class Day28Recursion {
 
   /**
    * Find the sum of N natural nos.
@@ -99,6 +99,6 @@ public class Day29RecursionPart1 {
     System.out.println("Arithmetic answer: " + subtract(multiply(add(10, 20), 30), 75));
     System.out.println("Nth fibonacci number: " + nthFibonacci(4));
     printNumbers(10);
-    System.out.println("\nIs palindrome: " + isPalindrome("kaylk", 0));
+    System.out.println("\nIs palindrome: " + isPalindrome("kayak", 0));
   }
 }

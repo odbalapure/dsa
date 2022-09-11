@@ -1,6 +1,6 @@
 package lectures;
 
-public class Day31RecursionPart2 {
+public class Day29Recursion {
 
   /**
    * Find the sum of digits for N

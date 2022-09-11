@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Day27HashingPart2 {
+public class Day27Hashing {
 
   /**
    * No. of subarrays with sum 0
@@ -14,7 +14,7 @@ public class Day27HashingPart2 {
    * @return
    */
   public static int numSubArraySumZero(int[] A, int N) {
-    int[] prefix = Day26HashingPart1.prefix(A, N);
+    int[] prefix = Day26Hashing.prefix(A, N);
     HashMap<Integer, Integer> map = new HashMap<>();
     int ans = 0;
 
@@ -54,7 +54,7 @@ public class Day27HashingPart2 {
     }
 
     // Function that finds the longest subarray with sum 0
-    int len = Day26HashingPart1.longestSubArraySumZero(A, N);
+    int len = Day26Hashing.longestSubArraySumZero(A, N);
     return len;
   }
 
@@ -192,7 +192,7 @@ public class Day27HashingPart2 {
     // Selecting 2/3 items will be N * (N - 1) => 2 * (2 - 1) => 2
     // [ (prefix[0], prefix[3]), (prefix[0], prefix[6]), (prefix[3], prefix[6]) ]
     // prefix: [3 5 8 3 5 8 3]
-    int[] A = { 3, 2, 3, -5, 2, 3, -5 }; // 5
+    // int[] A = { 3, 2, 3, -5, 2, 3, -5 }; // 5
     // prefix: [-2 0 2 -1 0 3 0]
     // int[] A = { -2, 2, 2, -3, 1, 3, -3 }; // 6
     // System.out.println(numSubArraySumZero(A, A.length));

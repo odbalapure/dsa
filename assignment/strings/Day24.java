@@ -1,4 +1,4 @@
-package assingment.strings;
+package assignment.strings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,20 +59,8 @@ public class Day24 {
     return true;
   }
 
-  /**
-   * Reverse words in a string
-   * 
-   * @param str
-   * @return
-   */
-  public static String reverseSentence(String str) {
-    str = str.replaceAll("\\s", "");
-    return str;
-  }
-
   public static void main(String[] args) {
     System.out.println(replaceToMinimizeDistinctChar("abcabbccd", 3)); // 2
     System.out.println(isAplhaNumeric("a#sbasda")); // false
-    System.out.println(reverseSentence(" a asdasd  ddsdasd     "));
   }
 }

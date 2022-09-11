@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeMap;
 
-public class Day26HashingPart1 {
+public class Day26Hashing {
 
   /**
    * Find the first non-repeating element
@@ -169,7 +169,7 @@ public class Day26HashingPart1 {
     int maxLen = 0;
 
     int i = -1, sum = 0;
-    map.put(sum, i);;
+    map.put(sum, i);
 
     while (i < N - 1) {
       i++;
