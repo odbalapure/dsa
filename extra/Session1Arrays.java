@@ -1,5 +1,3 @@
-package extra;
-
 import java.util.ArrayList;
 
 public class Session1Arrays {

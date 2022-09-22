@@ -1,5 +1,3 @@
-package lectures;
-
 import java.util.ArrayList;
 
 public class Day10ArraysCarry {

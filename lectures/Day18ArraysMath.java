@@ -1,5 +1,3 @@
-package lectures;
-
 public class Day18ArraysMath {
   /**
    * Toggle doors and find the no. of open doors at the end

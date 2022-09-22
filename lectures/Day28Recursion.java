@@ -1,5 +1,3 @@
-package lectures;
-
 public class Day28Recursion {
 
   /**

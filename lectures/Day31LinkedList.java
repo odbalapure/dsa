@@ -1,5 +1,3 @@
-package lectures;
-
 /* Linked List Node */
 class Node {
   int data;

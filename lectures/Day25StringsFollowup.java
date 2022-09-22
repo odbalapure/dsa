@@ -1,5 +1,3 @@
-package lectures;
-
 public class Day25StringsFollowup {
   /**
    * Reverse every word in a string (Constant Space)
