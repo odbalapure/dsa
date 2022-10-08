@@ -1,7 +1,5 @@
 package advance;
 
-import java.util.Arrays;
-
 public class Day39BitManipulation {
 
   /**
