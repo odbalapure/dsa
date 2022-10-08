@@ -1,3 +1,5 @@
+package intermediate;
+
 import java.util.ArrayList;
 
 public class Day10ArraysCarry {

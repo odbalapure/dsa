@@ -1,3 +1,5 @@
+package intermediate;
+
 public class Day15BitManipulation {
 
   /**

@@ -1,3 +1,5 @@
+package intermediate;
+
 /* Tree Node */
 class TreeNode {
   int val;

@@ -1,3 +1,5 @@
+package intermediate;
+
 /* Linked List Node */
 class Node {
   int data;

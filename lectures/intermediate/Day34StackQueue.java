@@ -1,3 +1,5 @@
+package intermediate;
+
 import java.util.Stack;
 
 public class Day34StackQueue {

@@ -1,3 +1,5 @@
+package intermediate;
+
 public class Day18ArraysMath {
   /**
    * Toggle doors and find the no. of open doors at the end
@@ -178,7 +180,7 @@ public class Day18ArraysMath {
    */
   public static int josephusProblem(int N) {
     int pow2k = 0;
-    
+
     for (int i = N; i >= 1; i--) {
       if (isPowerOf2(i)) {
         pow2k = i;
