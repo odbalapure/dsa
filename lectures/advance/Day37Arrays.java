@@ -15,7 +15,7 @@ public class Day37Arrays {
    *         \_ maxR[]: to store the max height on right
    *         \_ ans[]: to store the difference of (maxR[i] - A[i])
    *         - Return the ans[]
-   *         `
+   *        
    *         COMPLEXITY
    *         Time: O(N)
    *         Space: O(1)

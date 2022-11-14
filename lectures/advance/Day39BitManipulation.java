@@ -139,7 +139,7 @@ public class Day39BitManipulation {
    *         Time: O(N)
    *         Space: O(1)
    */
-  public static int maxXor(int[] A, int N) {
+  public static int maxXorSum(int[] A, int N) {
     int ans = 0, count = 0;
     for (int b = 0; b < 32; b++) {
       int set = 0, unset = 0;
@@ -172,6 +172,6 @@ public class Day39BitManipulation {
 
     // int[] A = {3,5,6}; // 14
     // int[] A = { 3, 5, 1, 8 }; // 45
-    // System.out.println(maxXor(A, A.length));
+    // System.out.println(maxXorSum(A, A.length));
   }
 }

@@ -51,18 +51,18 @@ public class Day14BitManipulation {
    * - Left most bit is the MOST SIGNIFICANT BIT
    * - The value of left most bit >>> sum of all the bits on the right side
    * - To get -ve binary no. we need 2's compliment
-   * -> Flip all the bits
-   * -> Add 1 to the resultant no.
+   * \_ Flip all the bits
+   * \_ Add 1 to the resultant no.
    * 
    * 
    * Range N bit no. can store
    * --------------------------------
    * - [-2^(N-1) to 2^(N-1) - 1]
    * - Data types
-   * -> Byte - 1 byte - 8 bits [-128 to 127]
-   * -> Short - 2 byte - 16 bits [-2^15 to 2^15 - 1]
-   * -> Int - 3 byte - 32 bits [-2^31 to 2^31 - 1]
-   * -> Long - 4 byte - 64 bits [-2^63 to 2^63 - 1]
+   * \_ Byte - 1 byte - 8 bits [-128 to 127]
+   * \_ Short - 2 byte - 16 bits [-2^15 to 2^15 - 1]
+   * \_ Int - 4 byte - 32 bits [-2^31 to 2^31 - 1]
+   * \_ Long - 8 byte - 64 bits [-2^63 to 2^63 - 1]
    * =================================================================================
    */
 
