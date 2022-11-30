@@ -109,10 +109,33 @@ public class Day40ArraysMod {
 
     int res = (a % p);
     if (b % 2 == 0) {
-      return aPowerModP(res * res, b / 2, p);
+      return aPowerModPBetter(res * res, b / 2, p);
     } else {
-      return a * aPowerModP(res * res, b / 2, p);
+      return a * aPowerModPBetter(res * res, b / 2, p);
     }
+  }
+
+  /**
+   * Return (a ^ b) % p - optimized iterative
+   * 
+   * @param A
+   * @param B
+   * @param C
+   * @return
+   */
+  public static int power(int A, int B, int C) {
+    long res = 1L;
+    long a = A;
+    while (B > 0) {
+      if ((B & 1) == 1) {
+        res = (a % C * res % C) % C;
+      }
+      // Double the base
+      a = (a % C * a % C) % C;
+      // Half the power
+      B = B >> 1;
+    }
+    return res < 0 ? (int) (res % C + C) : (int) (res % C);
   }
 
   /**
@@ -215,7 +238,11 @@ public class Day40ArraysMod {
     // System.out.println(modSumPairZero(A, A.length, 3));
     // int[] A = { 2, 7, 5, 10, 8, 4, 6, 11 }; // 5
     // System.out.println(modSumPairZero(A, A.length, 5));
-    int[] A = { 1, 3, 5, 7, 9, 4, 2, 8, 0 }; // 9
-    System.out.println(modSumPairZero(A, A.length, 4));
+    // int[] A = { 1, 3, 5, 7, 9, 4, 2, 8, 0 }; // 9
+    // System.out.println(modSumPairZero(A, A.length, 4));
+
+    // System.out.println(power(-1, 1, 20)); // 19
+    System.out.println(power(2, 5, 13)); // 19
+    // System.out.println(power(71045970, 41535484, 64735492)); // 20805472
   }
 }

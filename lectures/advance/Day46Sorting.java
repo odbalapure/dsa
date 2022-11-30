@@ -98,6 +98,10 @@ public class Day46Sorting {
    * @param A
    * @param N
    * @return
+   * 
+   *         COMPLEXITY
+   *         Time: O(N*N)
+   *         Space: O(1)
    */
   public static int inversionPairs(int[] A, int N) {
     int ans = 0;
@@ -112,6 +116,56 @@ public class Day46Sorting {
     return ans;
   }
 
+  /**
+   * Count the inversion pairs where i < j but A[i] > A[j]
+   * 
+   * @param A
+   * @param N
+   * @return
+   * 
+   *         COMPLEXITY
+   *         Time: O(N*logN)
+   *         Space: O(N)
+   */
+  public static int inversionPairsBetter(int[] A, int l, int r) {
+    return mergeSortAndCount(A, l, r);
+  }
+
+  /* Merge sort and count */
+  public static int mergeSortAndCount(int[] A, int l, int r) {
+    int count = 0;
+    if (l < r) {
+      int m = (l + r) / 2;
+      count += mergeSortAndCount(A, l, m);
+      count += mergeSortAndCount(A, m + 1, r);
+      count += mergeAndCount(A, l, m, r);
+    }
+    return count;
+  }
+
+  /* Count swaps */
+  public static int mergeAndCount(int[] A, int l, int m, int r) {
+    int[] left = Arrays.copyOfRange(A, l, m + 1);
+    int[] right = Arrays.copyOfRange(A, m + 1, r + 1);
+    int i = 0, j = 0, k = l, swaps = 0;
+
+    while (i < left.length && j < right.length) {
+      if (left[i] <= right[j])
+        A[k++] = left[i++];
+      else {
+        A[k++] = right[j++];
+        swaps += (left.length - i);
+      }
+    }
+
+    while (i < left.length)
+      A[k++] = left[i++];
+    while (j < right.length)
+      A[k++] = right[j++];
+
+    return swaps;
+  }
+
   public static void main(String[] args) {
     // int[] A = { 10, 9, 1, 2, 3 };
     // selectionSort(A, A.length);
@@ -121,7 +175,12 @@ public class Day46Sorting {
     // mergeSortedArrays(A, B, A.length, B.length);
 
     // int[] A = { 8, 3, 4 }; // 2
-    int[] A = { 4, 5, 1, 6, 3, 2 }; // 7
-    System.out.println(inversionPairs(A, A.length));
+    // int[] A = { 4, 5, 1, 6, 3, 2 }; // 7
+    // System.out.println(inversionPairs(A, A.length));
+
+    // int[] A = { 1, 20, 6, 4, 5 }; // 5
+    // int[] A = { 4, 5, 1, 2, 6, 3 }; // 7
+    // int[] A = { 4, 4, 4, 4, 4 }; // 0
+    // System.out.println(inversionPairsBetter(A, 0, A.length - 1));
   }
 }
