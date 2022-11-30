@@ -150,8 +150,8 @@ public class Day41ArraysGcd {
    * @return
    * 
    *         COMPLEXITY
-   *         Time:
-   *         Space:
+   *         Time: O(N * log(A[i]))
+   *         Space: O(log(A[i]))
    * 
    *         OBSERVATION: Less health person should attack larger health guy
    *         If larger guy attack, the game finishes and we won't find the min
@@ -181,7 +181,8 @@ public class Day41ArraysGcd {
     // int[] A = { 20, 64, 24, 100, 50 }; // 4 [20, 4, 4, 4, 2] [2, 2, 2, 50, 50]
     // System.out.println(deleteOneMaxGcd(A, A.length));
 
-    int[] A = { 10, 6 }; // 2
+    // int[] A = { 10, 6 }; // 2
+    int[] A = { 9, 6, 15 }; // 3
     System.out.println(pubG(A, A.length));
   }
 }
