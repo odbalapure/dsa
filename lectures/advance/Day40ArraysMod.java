@@ -193,8 +193,8 @@ public class Day40ArraysMod {
    * @return
    * 
    *         COMPLEXITY
-   *         Time: O(N + M)
-   *         Space: O(M)
+   *         Time: O(N + B/2) =~ O(N + B) 
+   *         Space: O(B)
    */
   public static int modSumPairZero(int[] A, int N, int B) {
     // int ans = 0;
