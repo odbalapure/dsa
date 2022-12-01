@@ -122,6 +122,8 @@ public class Day40ArraysMod {
    * @param B
    * @param C
    * @return
+   * 
+   *         Acc to Fermat's theorem a^(p-1) =~ 1 % p
    */
   public static int power(int A, int B, int C) {
     long res = 1L;
@@ -194,7 +196,7 @@ public class Day40ArraysMod {
    *         Time: O(N + M)
    *         Space: O(M)
    */
-  public static int modSumPairZero(int[] A, int N, int M) {
+  public static int modSumPairZero(int[] A, int N, int B) {
     // int ans = 0;
     // for (int i=0; i<N; i++) {
     // for (int j=0; j<N; j++) {
@@ -202,24 +204,31 @@ public class Day40ArraysMod {
     // break;
     // }
 
-    // if ((A[i] + A[j]) % M == 0) {
+    // if ((A[i] + A[j]) % B == 0) {
     // ans++;
     // }
     // }
     // }
 
-    int[] count = new int[M];
-    for (int i = 0; i < N; i++) {
-      count[A[i] % M]++;
-    }
+    int ans = 0, mod = 1000 * 1000 * 1000 + 7;
+    int[] cnt = new int[N];
+    for (int i = 0; i < N; i++)
+      cnt[A[i] % B]++;
 
-    int ans = (count[0] * count[0] - 1) / 2;
-    for (int i = 1; i <= M / 2 && i != (M - i); i++) {
-      ans += count[i] * count[M - i];
-    }
+    ans = (cnt[0] * cnt[0] - 1) / 2; // i=0 and j=0
+    ans %= mod;
 
-    if (M % 2 == 0) {
-      ans += (count[M / 2] * (count[M / 2] - 1) / 2);
+    int i = 1, j = B - 1;
+    while (i <= j) {
+      if (i == j) {
+        ans += ((cnt[i] * (cnt[j] - 1)) / 2);
+        ans %= mod;
+      } else {
+        ans += (cnt[i] * cnt[j]);
+        ans %= mod;
+      }
+      i++;
+      j--;
     }
 
     return ans;
@@ -238,11 +247,12 @@ public class Day40ArraysMod {
     // System.out.println(modSumPairZero(A, A.length, 3));
     // int[] A = { 2, 7, 5, 10, 8, 4, 6, 11 }; // 5
     // System.out.println(modSumPairZero(A, A.length, 5));
-    // int[] A = { 1, 3, 5, 7, 9, 4, 2, 8, 0 }; // 9
-    // System.out.println(modSumPairZero(A, A.length, 4));
+    int[] A = { 1, 3, 5, 7, 9, 4, 2, 8, 0 }; // 9
+    System.out.println(modSumPairZero(A, A.length, 4));
 
     // System.out.println(power(-1, 1, 20)); // 19
-    System.out.println(power(2, 5, 13)); // 19
+    // System.out.println(power(2, 5, 13)); // 6
+    // System.out.println(power(2, 5, 1000000007)); // 32
     // System.out.println(power(71045970, 41535484, 64735492)); // 20805472
   }
 }

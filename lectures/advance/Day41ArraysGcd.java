@@ -182,7 +182,7 @@ public class Day41ArraysGcd {
     // System.out.println(deleteOneMaxGcd(A, A.length));
 
     // int[] A = { 10, 6 }; // 2
-    int[] A = { 9, 6, 15 }; // 3
-    System.out.println(pubG(A, A.length));
+    // int[] A = { 9, 6, 15 }; // 3
+    // System.out.println(pubG(A, A.length));
   }
 }
