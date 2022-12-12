@@ -158,6 +158,59 @@ public class Day18ArraysMath {
   }
 
   /**
+   * Find the majority element i.e. A[i] > N/3
+   * 
+   * @param A
+   * @param N
+   * @return
+   * 
+   *         We can use Moore's vorting algorithm
+   *         There can be max 2 majority elements
+   */
+  public static int majorityElementN3(int[] A, int N) {
+    int cnt1 = 0, cnt2 = 0;
+    int num1 = Integer.MIN_VALUE, num2 = Integer.MIN_VALUE;
+
+    // Finding candidate element
+    for (int i = 0; i < N; i++) {
+      if (num1 == A[i])
+        cnt1++;
+      else if (num2 == A[i])
+        cnt2++;
+      else if (cnt1 == 0) {
+        num1 = A[i];
+        cnt1 = 1;
+      } else if (cnt2 == 0) {
+        num2 = A[i];
+        cnt2 = 1;
+      } else {
+        cnt1--;
+        cnt2--;
+      }
+    }
+
+    // Finding majority element
+    cnt1 = 0;
+    cnt2 = 0;
+    for (int i = 0; i < N; i++) {
+      if (num1 == A[i])
+        cnt1++;
+      else if (num2 == A[i])
+        cnt2++;
+    }
+
+    if (cnt1 > N / 3) {
+      return num1;
+    }
+
+    if (cnt2 > N / 3) {
+      return num2;
+    }
+
+    return -1;
+  }
+
+  /**
    * Josephus problem - where to stand inorder to be the last survior
    * 
    * @param A
@@ -223,5 +276,8 @@ public class Day18ArraysMath {
     // System.out.println(majorityElement(A, A.length));
 
     // System.out.println(josephusProblem(13)); // 11 7, 13 11
+
+    // int[] A = { 1, 1, 1, 3, 3, 2, 2, 2 }; // 1
+    // System.out.println(majorityElementN3(A, A.length));
   }
 }
