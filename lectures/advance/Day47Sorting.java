@@ -92,6 +92,45 @@ public class Day47Sorting {
     return ans;
   }
 
+  /**
+   * Sort array to form largest no.
+   * 
+   * @param A
+   * @param N
+   * @return
+   */
+  public String largestNumber(int[] A, int N) {
+    StringBuffer strBuf = new StringBuffer();
+    Node num[];
+    int i = 0;
+    num = new Node[A.length];
+    for (int n : A) {
+      num[i] = new Node(n);
+      i++;
+    }
+
+    Arrays.sort(num);
+    for (Node n : num) {
+      if (n.number == 0 && strBuf.length() != 0)
+        continue;
+      strBuf.append(n.number);
+    }
+    return strBuf.toString();
+  }
+
+  class Node implements Comparable<Node> {
+    int number;
+    public Node(int number) {
+        this.number = number;
+    }
+    @Override
+    public int compareTo(Node o) {
+        String first = String.valueOf(this.number) + String.valueOf(o.number);
+        String second = String.valueOf(o.number) + String.valueOf(this.number);
+        return second.compareTo(first);
+    }
+}
+
   public static void main(String[] args) {
     // int[] A = { 3, 10, -1, 2, 4, 6 };
     // System.out.println(Arrays.toString(insertionSort(A, A.length)));
@@ -101,7 +140,11 @@ public class Day47Sorting {
     // System.out.println(Arrays.toString(quickSort(A, 0, A.length - 1)));
 
     // int[] A = { 3, 2, 1, 2, 1, 7 }; // 6
-    int[] A = { 1, 2, 1 }; // 6
-    System.out.println(minNoOfIncrements(A, A.length));
+    // int[] A = { 1, 2, 1 }; // 6
+    // System.out.println(minNoOfIncrements(A, A.length));
+
+    // int[] A = { 8, 89 }; // 898
+    // int[] A = { 3, 30, 34, 5, 9 }; // 9534330
+    // System.out.println(new Day47Sorting().largestNumber(A, A.length));
   }
 }
